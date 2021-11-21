@@ -146,7 +146,7 @@ internal class WeekViewGestureHandler(
 
         val longClickResult = touchHandler.handleLongClick(e.x, e.y) ?: return
         if (!longClickResult.handled) {
-            dragHandler.startDragAndDrop(longClickResult.eventChip, e.x, e.y)
+//            dragHandler.startDragAndDrop(longClickResult.eventChip, e.x, e.y)
         }
     }
 
@@ -193,6 +193,7 @@ internal class WeekViewGestureHandler(
     }
 
     fun onTouchEvent(event: MotionEvent): Boolean {
+
         if (!scrollDirection.isHorizontal && flingDirection == None) {
             scaleDetector.onTouchEvent(event)
         }
@@ -207,13 +208,13 @@ internal class WeekViewGestureHandler(
             preFlingFirstVisibleDate = viewState.firstVisibleDate.copy()
         }
 
-        if (event.action == ACTION_MOVE && dragHandler.isDragging) {
-            dragHandler.updateDragAndDrop(event)
-        }
-
-        if (event.action == ACTION_UP && dragHandler.isDragging) {
-            dragHandler.finishDragAndDrop()
-        }
+//        if (event.action == ACTION_MOVE && dragHandler.isDragging) {
+//            dragHandler.updateDragAndDrop(event)
+//        }
+//
+//        if (event.action == ACTION_UP && dragHandler.isDragging) {
+//            dragHandler.finishDragAndDrop()
+//        }
 
         return handled
     }
